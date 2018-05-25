@@ -57,12 +57,11 @@ public class CalculerRemunerationServiceSimple implements CalculerRemunerationSe
 		BigDecimal netAPayerPro = new BigDecimal("0.00");
 		for (Cotisation cotisation2 : cotisationImposableList) {
 			if (cotisation2.getTauxSalarial() != null) {
-				netAPayerPro = cotisation2.getTauxSalarial().multiply(salaire_brut2);
+				netAPayerPro = netAPayerPro.add(cotisation2.getTauxSalarial().multiply(salaire_brut));
 			}
 		}
 		BigDecimal netAPayer = netImposable.subtract(netAPayerPro);
 		resultat.setNetAPayer(paieUtils.formaterBigDecimal(netAPayer));
-		System.out.println(netAPayer);
 		return resultat;
 	}
 
