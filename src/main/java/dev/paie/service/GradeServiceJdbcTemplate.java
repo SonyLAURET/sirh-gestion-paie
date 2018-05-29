@@ -24,7 +24,7 @@ public class GradeServiceJdbcTemplate implements GradeService {
 
 	@Override
 	public void sauvegarder(Grade nouveauGrade) {
-		String sqlUpdate = "INSERT INTO grade  (ID,CODE,NB_HEURES_BASE,TAUX_BASE) VALUES(?,?,?,?)";
+		String sqlUpdate = "INSERT INTO grade  (ID,CODE,nbHeuresBase,TAUX_BASE) VALUES(?,?,?,?)";
 		jdbcTemplate.update(sqlUpdate, nouveauGrade.getId(), nouveauGrade.getCode(), nouveauGrade.getNbHeuresBase(),
 				nouveauGrade.getTauxBase());
 
@@ -32,7 +32,7 @@ public class GradeServiceJdbcTemplate implements GradeService {
 
 	@Override
 	public void mettreAJour(Grade grade) {
-		String sqlUpdate = "UPDATE grade SET CODE = ? ,NB_HEURES_BASE= ?,TAUX_BASE=? WHERE ID = ? ";
+		String sqlUpdate = "UPDATE grade SET CODE = ? ,nbHeuresBase= ?,TAUX_BASE=? WHERE ID = ? ";
 		jdbcTemplate.update(sqlUpdate, grade.getCode(), grade.getNbHeuresBase(), grade.getTauxBase(), grade.getId());
 	}
 
@@ -43,7 +43,7 @@ public class GradeServiceJdbcTemplate implements GradeService {
 			Grade grade = new Grade();
 			grade.setId(rs.getInt("ID"));
 			grade.setCode(rs.getString("CODE"));
-			grade.setNbHeuresBase(rs.getBigDecimal("NB_HEURES_BASE"));
+			grade.setNbHeuresBase(rs.getBigDecimal("nbHeuresBase"));
 			grade.setTauxBase(rs.getBigDecimal("TAUX_BASE"));
 			return grade;
 		};

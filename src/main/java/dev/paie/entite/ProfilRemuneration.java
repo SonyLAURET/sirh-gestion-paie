@@ -2,16 +2,34 @@ package dev.paie.entite;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "profilRemuneration")
 public class ProfilRemuneration {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column(name = "code")
 	private String code;
 
+	@ManyToMany
+	@JoinTable(name = "pro_cotNo", joinColumns = @JoinColumn(name = "ID_PRO", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "ID_COTNO", referencedColumnName = "ID"))
 	private List<Cotisation> cotisationsNonImposables;
-	
+	@ManyToMany
+	@JoinTable(name = "pro_cot", joinColumns = @JoinColumn(name = "ID_PRO", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "ID_COT", referencedColumnName = "ID"))
 	private List<Cotisation> cotisationsImposables;
-	
+	@ManyToMany
+	@JoinTable(name = "pro_ava", joinColumns = @JoinColumn(name = "ID_PRO", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "ID_AVA", referencedColumnName = "ID"))
 	private List<Avantage> avantages;
 
 	public Integer getId() {
