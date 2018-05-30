@@ -75,4 +75,5 @@ public class BulletinSalaireController {
 		mv.setViewName("bulletin/visualiserBulletin");
 		return mv;
 	}
+
 }

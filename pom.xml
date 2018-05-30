@@ -10,7 +10,7 @@
 		<junit.version>4.12</junit.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<hibernate.version>5.1.0.Final</hibernate.version>		
+		<hibernate.version>5.1.0.Final</hibernate.version>
 	</properties>
 	<build>
 		<finalName>paie</finalName>
@@ -115,6 +115,12 @@
 			<artifactId>hibernate-java8</artifactId>
 			<version>${hibernate.version}</version>
 			<scope>runtime</scope>
+		</dependency>
+		<!-- Implémentation Jackson -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.3</version>
 		</dependency>
 	</dependencies>
 </project>
