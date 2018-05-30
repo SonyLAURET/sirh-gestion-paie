@@ -1,6 +1,7 @@
 package dev.paie.web.controller;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +9,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import dev.paie.entite.Collegue;
 import dev.paie.entite.Entreprise;
 import dev.paie.entite.Grade;
 import dev.paie.entite.ProfilRemuneration;
 import dev.paie.entite.RemunerationEmploye;
+import dev.paie.repository.CollegueRepository;
 import dev.paie.repository.EntrepriseRepository;
 import dev.paie.repository.GradeRepository;
 import dev.paie.repository.PeriodeRepository;
@@ -34,6 +38,8 @@ public class RemunerationEmployeController {
 	RemunationEmployeRepositoy remunerationEmployeRepository;
 	@Autowired
 	PeriodeRepository periode;
+	@Autowired
+	CollegueRepository collegueRepository;
 
 	@RequestMapping(method = RequestMethod.GET, path = "/creer")
 	public ModelAndView creerEmploye() {
@@ -49,12 +55,21 @@ public class RemunerationEmployeController {
 		List<Grade> gradeList = grade.findAll();
 		mv.addObject("grade", gradeList);
 
+		RestTemplate rt = new RestTemplate();
+		Collegue[] result = rt.getForObject("http://collegues-api.cleverapps.io/collegues", Collegue[].class);
+		List<String> collegueList = new ArrayList<>();
+		for (Collegue collegue : result) {
+			collegueList.add(collegue.getMatricule());
+		}
+		mv.addObject("matricule", collegueList);
+
 		mv.addObject("employe", new RemunerationEmploye());
 		return mv;
 	}
 
 	@RequestMapping(method = RequestMethod.POST, path = "/creer")
-	public String creerEmployePost(@ModelAttribute("employe") RemunerationEmploye remunerationEmploye) {
+	public String creerEmployePost(@ModelAttribute("employe") RemunerationEmploye remunerationEmploye,
+			Collegue collegue) {
 		remunerationEmploye.setDate(LocalDateTime.now());
 		remunerationEmployeRepository.save(remunerationEmploye);
 		return "redirect:/mvc/employes/lister";

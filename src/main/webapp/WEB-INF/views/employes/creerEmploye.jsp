@@ -36,7 +36,9 @@
 		<form:form methode="get" modelAttribute="employe">
 			<div class="row">
 				<label for="matricule" class="col-4">Matricule</label>
-				<form:input class="text col-6" id="matricule" path="matricule" />
+				<form:select path="matricule" items="${matricule}"
+				  id="matricule"
+					class="col-6"></form:select>
 			</div>
 			<br />
 			<div class="row">
