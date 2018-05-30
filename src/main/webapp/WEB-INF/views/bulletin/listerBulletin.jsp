@@ -53,7 +53,7 @@
 					<td>${bulletin.value.salaireBrut}</td>
 					<td>${bulletin.value.netImposable}</td>
 					<td>${bulletin.value.netAPayer}</td>
-					<td><a href="visualiser">Action</a></td>
+					<td><a href="visualiser/${bulletin.key.id}">Action</a></td>
 				</tr>
 			</c:forEach>
 		</table>

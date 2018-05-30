@@ -29,6 +29,9 @@ public class BulletinSalaire {
 	@Column(name = "date")
 	private LocalDateTime date;
 
+	public BulletinSalaire() {
+	}
+
 	public LocalDateTime getDate() {
 		return date;
 	}

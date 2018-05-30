@@ -14,6 +14,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
+// support de l'annotation @Transactional
 @EnableTransactionManagement
 public class JpaConfig {
 
