@@ -25,6 +25,9 @@ public class Entreprise {
 	@Column(name = "codeNaf")
 	private String codeNaf;
 
+	public Entreprise() {
+	}
+
 	public String getDenomination() {
 		return denomination;
 	}

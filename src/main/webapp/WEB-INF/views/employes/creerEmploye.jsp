@@ -11,7 +11,6 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
 	crossorigin="anonymous">
-
 </head>
 <body>
 	<!--navbar-->
@@ -37,7 +36,9 @@
 		<form:form methode="get" modelAttribute="employe">
 			<div class="row">
 				<label for="matricule" class="col-4">Matricule</label>
-				<form:input class="text col-6" id="matricule" path="matricule" />
+				<form:select path="matricule" items="${matricule}"
+				  id="matricule"
+					class="col-6"></form:select>
 			</div>
 			<br />
 			<div class="row">

@@ -14,7 +14,6 @@ import javax.persistence.Table;
 public class Cotisation {
 
 	public Cotisation() {
-
 	}
 
 	@Id
