@@ -36,14 +36,16 @@
 		<br />
 		<div class="row">
 			<h4 class="offset-8">Période</h4>
-			<p class="offset-8"><c:out value="${bulletin.key.periode.dateFin}"> -
-				${bulletin.key.periode.dateFin}</c:out></p>
+			<p class="offset-8">${bulletinSalaire.periode.dateFin}-
+				${bulletinSalaire.key.periode.dateFin}</p>
 		</div>
 		<div class="row">
 			<h4 class="col-12">Entreprise</h4>
-			<span class="col-12">DEV ENtreprise</span><br/>
+			<span class="col-12">DEV ENtreprise</span><br />
 			<p class="col-6">Siret :</p>
-			<h6 class="offset-2">Matricule </h4>
+			<h6 class="offset-2">
+				Matricule
+				</h4>
 		</div>
 		<div class="row">
 			<h4>Salaire</h4>
@@ -95,34 +97,11 @@
 					<th>Taux Patronal</th>
 					<th>Cotisations Patronales</th>
 				</tr>
-				<tr>
-					<td>Salaire de base</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+				<c:forEach var="bulletin" items="${bulletin.remunerationEmploye.profilRemuneration.cotisationsNonImposables}">
+				<tr>				
+					<td>${bulletin.libelle }</td>			
 				</tr>
-				<tr>
-					<td>Prime Exeptionnelle</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Salaire Brut</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
+				</c:forEach>
 			</table>
 		</div>
 		<div class="row">

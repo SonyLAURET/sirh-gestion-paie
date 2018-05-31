@@ -82,11 +82,10 @@ public class CalculerRemunerationServiceSimple implements CalculerRemunerationSe
 		return BulletinCalcule;
 	}
 
-	// @Override
-	// public BulletinResultatCalcul recupererBulletinAvecCalcul(Integer id) {
-	// BulletinSalaire bulletinSalaire = bulletinSalaireRepository.findOne(id);
-	// return BulletinResultatCalcul(bulletinSalaire,
-	// calculer(bulletinSalaire));
-	// }
+	@Override
+	public BulletinResultatCalcul recupererBulletinAvecCalcul(Integer id) {
+		BulletinSalaire bulletinSalaire = bulletinSalaireRepository.findOne(id);
+		return new BulletinResultatCalcul(bulletinSalaire, calculer(bulletinSalaire));
+	}
 
 }
