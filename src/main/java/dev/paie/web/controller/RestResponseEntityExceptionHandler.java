@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package dev.paie.web.controller;
 
 import org.springframework.dao.DataIntegrityViolationException;
@@ -23,6 +24,8 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 		return ResponseEntity.badRequest().body(bodyOfResponse);
 	}
 =======
+=======
+>>>>>>> master
 package dev.paie.web.controller;
 
 import org.springframework.dao.DataIntegrityViolationException;
@@ -46,5 +49,8 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 		String bodyOfResponse = "Code de cotisations non trouvé";
 		return ResponseEntity.badRequest().body(bodyOfResponse);
 	}
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
 }

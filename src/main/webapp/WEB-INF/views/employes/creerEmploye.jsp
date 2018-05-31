@@ -25,7 +25,7 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link" href="../employes/lister">Employes</a>
 				</li>
-				<li class="nav-item active"><a class="nav-link" href="../bullentin/lister">Bulletins</a>
+				<li class="nav-item active"><a class="nav-link" href="../bulletin/lister">Bulletins</a>
 				</li>
 			</ul>
 		</div>

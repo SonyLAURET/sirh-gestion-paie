@@ -34,7 +34,7 @@
 	<div class="container">
 		<h1>Lister des bulletins</h1>
 		<a role="button" href="creer" class="offset-6 col-6 btn btn-light">Créer
-			un nouveau Bulletin un employé</a><br />
+			un nouveau bulletin</a><br />
 		<table class="table table-striped">
 			<tr>
 				<th>Date/heure Création</th>

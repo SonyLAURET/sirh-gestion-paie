@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package dev.paie.service;
 
 import dev.paie.entite.BulletinSalaire;
@@ -32,6 +33,8 @@ public class BulletinResultatCalcul {
 	}
 
 =======
+=======
+>>>>>>> master
 package dev.paie.service;
 
 import dev.paie.entite.BulletinSalaire;
@@ -64,5 +67,8 @@ public class BulletinResultatCalcul {
 		this.resultatCalcul = resultatCalcul;
 	}
 
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
 }

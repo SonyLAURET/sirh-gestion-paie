@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package dev.paie.entite;
 
 import javax.persistence.Entity;
@@ -119,6 +120,8 @@ public class Collegue {
 
 }
 =======
+=======
+>>>>>>> master
 package dev.paie.entite;
 
 import javax.persistence.Entity;
@@ -238,4 +241,7 @@ public class Collegue {
 	}
 
 }
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master

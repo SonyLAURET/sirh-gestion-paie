@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <%@page import="java.util.List"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -183,6 +184,8 @@
 		crossorigin="anonymous"></script>
 </body>
 =======
+=======
+>>>>>>> master
 <%@page import="java.util.List"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -221,6 +224,7 @@
 		<br />
 		<div class="row">
 			<h4 class="offset-8">Période</h4>
+<<<<<<< HEAD
 			<p class="offset-8"><c:out value="${bulletin.key.periode.dateFin}"> -
 				${bulletin.key.periode.dateFin}</c:out></p>
 		</div>
@@ -229,6 +233,18 @@
 			<span class="col-12">DEV ENtreprise</span><br/>
 			<p class="col-6">Siret :</p>
 			<h6 class="offset-2">Matricule </h4>
+=======
+			<p class="offset-8"><c:out value ="Du ${bulletin.periode.dateDebut}"/>
+				au ${bulletin.periode.dateFin}</p>
+		</div>
+		<div class="row">
+			<h4 class="col-12">Entreprise</h4>
+			<span class="col-12">DEV Entreprise</span><br />
+			<p class="col-6">Siret :<c:out value="${bulletin.remunerationEmploye.entreprise.siret}" /></p>
+			<h6 class="offset-2">
+				Matricule :<c:out value="${bulletin.remunerationEmploye.matricule}" />
+				</h4>
+>>>>>>> master
 		</div>
 		<div class="row">
 			<h4>Salaire</h4>
@@ -242,16 +258,26 @@
 				</tr>
 				<tr>
 					<td>Salaire de base</td>
+<<<<<<< HEAD
 					<td></td>
 					<td></td>
 					<td></td>
+=======
+					<td><c:set var="montantSalarialSalaire" value="${paieUtils.formaterBigDecimal(bulletin.key.remunerationEmploye.grade.nbHeuresBase * bulletinSalaire.key.remunerationEmploye.grade.tauxBase)}" /></td>
+					<td><c:out value="${bulletin.remunerationEmploye.grade.tauxBase}" /></td>
+          		<td><c:out value="${montantSalarialSalaire}" /></td>
+>>>>>>> master
 					<td></td>
 				</tr>
 				<tr>
 					<td>Prime Exeptionnelle</td>
 					<td></td>
 					<td></td>
+<<<<<<< HEAD
 					<td></td>
+=======
+					<td><c:out value="${bulletin.primeExceptionnelle}" /></td>
+>>>>>>> master
 					<td></td>
 				</tr>
 				<tr>
@@ -276,10 +302,15 @@
 				<tr>
 					<th>Rubriques</th>
 					<th>Base</th>
+<<<<<<< HEAD
+=======
+					<th>Taux Salarial</th>
+>>>>>>> master
 					<th>Montant Salarial</th>
 					<th>Taux Patronal</th>
 					<th>Cotisations Patronales</th>
 				</tr>
+<<<<<<< HEAD
 				<tr>
 					<td>Salaire de base</td>
 					<td></td>
@@ -308,6 +339,18 @@
 					<td></td>
 					<td></td>
 				</tr>
+=======
+				<c:forEach var="bulletin" items="${bulletin.remunerationEmploye.profilRemuneration.cotisationsNonImposables}">
+				<tr>				
+					<td>${cotisationNonImposable.code} ${bulletin.libelle }</td>
+					<td></td>
+					<td>${bulletin.tauxSalarial }</td>			
+					<td><c:out value="${montantSalarialCotisation}" /></td>
+					<td>${bulletin.tauxPatronal }</td>
+					<td><c:out value="${montantPatronalCotisation}" /></td>
+				</tr>
+				</c:forEach>
+>>>>>>> master
 			</table>
 		</div>
 		<div class="row">
@@ -366,5 +409,8 @@
 		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
 		crossorigin="anonymous"></script>
 </body>
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
 </html>

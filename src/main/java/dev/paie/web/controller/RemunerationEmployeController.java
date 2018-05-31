@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,6 +43,7 @@ public class RemunerationEmployeController {
 	CollegueRepository collegueRepository;
 
 	@RequestMapping(method = RequestMethod.GET, path = "/creer")
+	@Secured("ROLE_ADMINISTRATEUR")
 	public ModelAndView creerEmploye() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("employes/creerEmploye");
@@ -68,6 +70,10 @@ public class RemunerationEmployeController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, path = "/creer")
+<<<<<<< HEAD
+=======
+	@Secured("ROLE_ADMINISTRATEUR")
+>>>>>>> master
 	public String creerEmployePost(@ModelAttribute("employe") RemunerationEmploye remunerationEmploye,
 			Collegue collegue) {
 		remunerationEmploye.setDate(LocalDateTime.now());
@@ -77,6 +83,7 @@ public class RemunerationEmployeController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, path = "/lister")
+	@Secured({ "ROLE_UTILISATEUR", "ROLE_ADMINISTRATEUR" })
 	public ModelAndView ListerEmploye() {
 		ModelAndView mv = new ModelAndView();
 		List<RemunerationEmploye> remunerationEmployesList = remunerationEmployeRepository.findAll();
