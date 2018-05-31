@@ -36,15 +36,15 @@
 		<br />
 		<div class="row">
 			<h4 class="offset-8">Période</h4>
-			<p class="offset-8">${bulletinSalaire.periode.dateFin}-
-				${bulletinSalaire.key.periode.dateFin}</p>
+			<p class="offset-8"><c:out value ="Du ${bulletin.periode.dateDebut}"/>
+				au ${bulletin.periode.dateFin}</p>
 		</div>
 		<div class="row">
 			<h4 class="col-12">Entreprise</h4>
-			<span class="col-12">DEV ENtreprise</span><br />
-			<p class="col-6">Siret :</p>
+			<span class="col-12">DEV Entreprise</span><br />
+			<p class="col-6">Siret :<c:out value="${bulletin.remunerationEmploye.entreprise.siret}" /></p>
 			<h6 class="offset-2">
-				Matricule
+				Matricule :<c:out value="${bulletin.remunerationEmploye.matricule}" />
 				</h4>
 		</div>
 		<div class="row">
@@ -59,16 +59,16 @@
 				</tr>
 				<tr>
 					<td>Salaire de base</td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td><c:set var="montantSalarialSalaire" value="${paieUtils.formaterBigDecimal(bulletin.key.remunerationEmploye.grade.nbHeuresBase * bulletinSalaire.key.remunerationEmploye.grade.tauxBase)}" /></td>
+					<td><c:out value="${bulletin.remunerationEmploye.grade.tauxBase}" /></td>
+          		<td><c:out value="${montantSalarialSalaire}" /></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td>Prime Exeptionnelle</td>
 					<td></td>
 					<td></td>
-					<td></td>
+					<td><c:out value="${bulletin.primeExceptionnelle}" /></td>
 					<td></td>
 				</tr>
 				<tr>
@@ -93,13 +93,19 @@
 				<tr>
 					<th>Rubriques</th>
 					<th>Base</th>
+					<th>Taux Salarial</th>
 					<th>Montant Salarial</th>
 					<th>Taux Patronal</th>
 					<th>Cotisations Patronales</th>
 				</tr>
 				<c:forEach var="bulletin" items="${bulletin.remunerationEmploye.profilRemuneration.cotisationsNonImposables}">
 				<tr>				
-					<td>${bulletin.libelle }</td>			
+					<td>${cotisationNonImposable.code} ${bulletin.libelle }</td>
+					<td></td>
+					<td>${bulletin.tauxSalarial }</td>			
+					<td><c:out value="${montantSalarialCotisation}" /></td>
+					<td>${bulletin.tauxPatronal }</td>
+					<td><c:out value="${montantPatronalCotisation}" /></td>
 				</tr>
 				</c:forEach>
 			</table>
