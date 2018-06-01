@@ -72,14 +72,7 @@ public class BulletinSalaireController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, path = "/visualiser/{id}")
-<<<<<<< HEAD
-	public ModelAndView VisualiserBulletin(@PathVariable int id) {
-		ModelAndView mv = new ModelAndView();
-		List<BulletinSalaire> bulletinSalaires = bulletin.findAll();
-		RemunerationEmploye remunerationEmploye = remunerationEmployeRepository.findOne(id);
-		mv.addObject("remuneration", remunerationEmploye);
-		mv.setViewName("bulletin/visualiserBulletin");
-=======
+
 	@Secured({ "ROLE_UTILISATEUR", "ROLE_ADMINISTRATEUR" })
 	public ModelAndView VisualiserBulletin(@PathVariable int id) {
 		BulletinResultatCalcul bulletinAvecCalcul = calculerRemunerationService.recupererBulletinAvecCalcul(id);
@@ -87,7 +80,7 @@ public class BulletinSalaireController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("bulletin/visualiserBulletin");
 		mv.addObject("bulletin", bulletin);
->>>>>>> master
+
 		return mv;
 	}
 

@@ -48,23 +48,6 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService {
 			Stream.of(Entreprise.class, Grade.class, Cotisation.class, ProfilRemuneration.class)
 					.flatMap(uneClasse -> context.getBeansOfType(uneClasse).values().stream()).forEach(em::persist);
 
-			/*
-			 * // Sans le stream Collection<Entreprise> entrepriseCollection =
-			 * context.getBeansOfType(Entreprise.class).values(); for
-			 * (Entreprise entreprise : entrepriseCollection) {
-			 * em.persist(entreprise); } Collection<Grade> gradeCollection =
-			 * context.getBeansOfType(Grade.class).values(); for (Grade grade :
-			 * gradeCollection) { em.persist(grade); }
-			 * Collection<ProfilRemuneration> profilRemunerationCollection =
-			 * context .getBeansOfType(ProfilRemuneration.class).values(); for
-			 * (ProfilRemuneration profilRemuneration :
-			 * profilRemunerationCollection) { em.persist(profilRemuneration); }
-			 * Collection<Cotisation> cotisationsCollection =
-			 * context.getBeansOfType(Cotisation.class).values(); for
-			 * (Cotisation cotisation : cotisationsCollection) {
-			 * em.persist(cotisation); }
-			 */
-
 			LocalDate start = null;
 			LocalDate end = null;
 			for (int i = 1; i < 13; i++) {
@@ -75,16 +58,6 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService {
 				periode.setDateFin(end);
 				em.persist(periode);
 			}
-			/*
-			 * IntStream.rangeClosed(1, 12).mapToObj(i -> { Periode periode =
-			 * new Periode(); periode.setDateDebut(
-			 * LocalDate.of(LocalDate.now().getYear(), i, 1));
-			 * periode.setDateFin(LocalDate.of(LocalDate.now().getYear(), i,
-			 * LocalDate.now().withMonth(i).lengthOfMonth())); return p;
-			 * }).forEach(em::persist);
-			 */
-<<<<<<< HEAD
-=======
 
 			// creation d'un utilisateur
 			Utilisateur user = new Utilisateur();
@@ -100,8 +73,6 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService {
 			admin.setEstActif(true);
 			admin.setRole(ROLES.ROLE_ADMINISTRATEUR);
 			em.persist(admin);
->>>>>>> master
-
 		}
 		// désormais inutile car try(resource){} -> try-with-resources
 		// context.close();

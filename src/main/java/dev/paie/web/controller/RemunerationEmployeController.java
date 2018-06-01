@@ -70,10 +70,7 @@ public class RemunerationEmployeController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, path = "/creer")
-<<<<<<< HEAD
-=======
 	@Secured("ROLE_ADMINISTRATEUR")
->>>>>>> master
 	public String creerEmployePost(@ModelAttribute("employe") RemunerationEmploye remunerationEmploye,
 			Collegue collegue) {
 		remunerationEmploye.setDate(LocalDateTime.now());
