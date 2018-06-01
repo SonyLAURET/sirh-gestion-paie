@@ -9,13 +9,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import javassist.NotFoundException;
-
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
-	@ExceptionHandler(value = { NotFoundException.class, DataIntegrityViolationException.class,
-			IllegalArgumentException.class, IllegalStateException.class })
+	@ExceptionHandler(value = { DataIntegrityViolationException.class, IllegalArgumentException.class,
+			IllegalStateException.class })
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	protected ResponseEntity<Object> notFoundHandle(RuntimeException ex, WebRequest request) {
 		String bodyOfResponse = "Code de cotisations non trouvé";
